@@ -20,7 +20,7 @@ MonoBehaviour:
   eatRate: 3
   dietTags:
   - Berries
-  - Bunny
+  - Meat
   speed: 3
   strength: 3
   searchRadius: 16
