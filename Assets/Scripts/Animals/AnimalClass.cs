@@ -74,7 +74,6 @@ public class Animal : MonoBehaviour
             FoodSource food = foodSearch.FindFood();
             if (food != null)
             {
-                Debug.Log($"{name} found food: {food.name}");
                 roamBehavior.StopRoaming();
 
                 if (Vector3.Distance(transform.position, food.transform.position) < 1f)

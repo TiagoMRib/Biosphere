@@ -100,7 +100,6 @@ public class FoodSource : MonoBehaviour
     {
         float amountAvailable = Mathf.Min(requestedAmount, currentAbundance);
         currentAbundance -= amountAvailable;
-        Debug.Log($"Consumed {amountAvailable} from food source. Remaining: {currentAbundance}");
 
         if (currentAbundance <= 0f)
         {

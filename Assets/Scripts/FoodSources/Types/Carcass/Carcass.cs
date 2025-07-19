@@ -6,7 +6,7 @@ public class CarcassFoodSource : FoodSource
 {
     [Header("Bug Cloud Spawning")]
     public GameObject bugCloudPrefab;
-    public float bugCloudSpawnInterval = 10f;
+    public float bugCloudSpawnInterval = 30f;
     public float bugCloudSpawnRadius = 1.5f;
 
     private float bugCloudTimer = 0f;
@@ -31,6 +31,7 @@ public class CarcassFoodSource : FoodSource
 
     private void TrySpawnBugCloud()
     {
+        Debug.Log($"Attempting to spawn bug cloud for carcass {name}");
         if (bugCloudPrefab == null)
         {
             Debug.LogWarning("No BugCloud prefab assigned to carcass.");
@@ -59,6 +60,7 @@ public class CarcassFoodSource : FoodSource
 
             if (!blocked)
             {
+                Debug.Log($"Spawning bug cloud");
                 Instantiate(bugCloudPrefab, spawnPos, Quaternion.identity);
                 break;
             }

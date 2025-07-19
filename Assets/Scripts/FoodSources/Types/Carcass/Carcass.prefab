@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 8c7c75f3f9886ad44b24894e17fc4d36, type: 2}
   currentAbundance: 0
-  bugCloudPrefab: {fileID: 0}
+  bugCloudPrefab: {fileID: 7783854210427000874, guid: 871e2235c60ed0e45879814e71c22648, type: 3}
   bugCloudSpawnInterval: 10
   bugCloudSpawnRadius: 1.5
 --- !u!65 &5947841075045576537

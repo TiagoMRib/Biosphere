@@ -17,9 +17,7 @@ public class FoodSearchBehavior : MonoBehaviour
 
         foreach (var hit in hits)
         {
-            Debug.Log($"Checking collider for food: {hit.name}");
             FoodSource food = hit.GetComponent<FoodSource>();
-            Debug.Log($"Found food: {food?.name ?? "None"}");
             if (food != null && animal.GetDiet().Contains(food.GetTag()))
                 return food;
         }
@@ -43,7 +41,6 @@ public class FoodSearchBehavior : MonoBehaviour
 
         foreach (var hit in hits)
         {
-            Debug.Log($"Checking collider: {hit.name}");
             Animal other = hit.GetComponent<Animal>();
 
             if (other != null && other != animal)

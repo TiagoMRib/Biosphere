@@ -38,7 +38,6 @@ public class EatBehavior : MonoBehaviour
         }
 
         float amountToConsume = animal.traits.eatRate * Time.deltaTime;
-        Debug.Log($"{animal.name} consuming {amountToConsume}");
         float healthGained = currentFood.Consume(amountToConsume); // defined in FoodSource
         animal.currentHealth += healthGained;
         animal.currentHealth = Mathf.Min(animal.traits.maxHealth, animal.currentHealth);
