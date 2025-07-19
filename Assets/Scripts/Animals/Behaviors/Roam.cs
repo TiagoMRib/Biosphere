@@ -17,6 +17,12 @@ public class RoamBehavior : MonoBehaviour
     {
         if (!hasTarget) return;
 
+        if (animal.IsFrozen())
+        {
+            // If the animal is frozen, it cannot move
+            return;
+        }
+
         transform.position = Vector3.MoveTowards(transform.position, roamTarget, animal.traits.speed * Time.deltaTime);
 
         if (Vector3.Distance(transform.position, roamTarget) < 0.5f)

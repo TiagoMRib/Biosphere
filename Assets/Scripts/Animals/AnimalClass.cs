@@ -7,6 +7,7 @@ public class Animal : MonoBehaviour
 {
     public AnimalTraits traits;
     public float currentHealth;
+    private bool isFrozen = false;
 
     // Behaviors
     private FoodSearchBehavior foodSearch;
@@ -108,7 +109,7 @@ public class Animal : MonoBehaviour
         }
 
         // 4. Roam if not hungry or no food/prey found
-        if (!roamBehavior.IsRoaming())
+        if (!roamBehavior.IsRoaming() && !IsFrozen())
         {
             roamBehavior.PickNewRoamTarget();
         }
@@ -132,8 +133,27 @@ public class Animal : MonoBehaviour
 
         restBehavior.StartRest();
     }
+
+
+    public void FreezeMovement()
+    {
+        Debug.Log($"{name} is frozen and cannot move.");
+        isFrozen = true;
+    }
+
+    public void UnfreezeMovement()
+    {
+        isFrozen = false;
+    }
+
+    public bool IsFrozen()
+    {
+        return isFrozen;
+    }
+
     public void MoveTowards(Vector3 target)
     {
+        if (isFrozen) return;
         transform.position = Vector3.MoveTowards(transform.position, target, traits.speed * Time.deltaTime);
     }
 

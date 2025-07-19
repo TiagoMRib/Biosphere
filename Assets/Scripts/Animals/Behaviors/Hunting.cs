@@ -37,21 +37,38 @@ public class HuntingBehavior : MonoBehaviour
 
         if (Vector3.Distance(animal.transform.position, targetPrey.transform.position) < attackRange)
         {
-            ResolveFight(animal, targetPrey);
+            StartCoroutine(FightRoutine(animal, targetPrey));
             StopHunt();
         }
     }
 
-    private void ResolveFight(Animal predator, Animal prey)
+    private IEnumerator FightRoutine(Animal predator, Animal prey)
     {
-        float predatorRoll = predator.traits.strength + Random.Range(0f, 2f);
-        float preyRoll = prey.traits.strength + Random.Range(0f, 2f);
+        Debug.Log($"{predator.name} is fighting {prey.name}...");
+
+        predator.FreezeMovement();
+        prey.FreezeMovement();
+
+        float predatorStrength = predator.traits.strength;
+        float preyStrength = prey.traits.strength;
+
+        float baseTime = 0.5f;
+        float maxExtraTime = 2f;
+
+        // Closer match -> longer fight
+        float strengthRatio = Mathf.Min(predatorStrength, preyStrength) / Mathf.Max(predatorStrength, preyStrength);
+        float fightDuration = baseTime + (1f - strengthRatio) * maxExtraTime;
+
+        Debug.Log($"Fight duration: {fightDuration:F2}s");
+        yield return new WaitForSeconds(fightDuration);
+
+        float predatorRoll = predatorStrength + Random.Range(0f, 2f);
+        float preyRoll = preyStrength + Random.Range(0f, 2f);
 
         if (predatorRoll >= preyRoll)
         {
             Debug.Log($"{predator.name} killed {prey.name}!");
 
-            // Spawn carcass 
             if (prey.traits.carcassPrefab != null)
             {
                 GameObject carcass = Instantiate(prey.traits.carcassPrefab, prey.transform.position, Quaternion.identity);
@@ -69,12 +86,17 @@ public class HuntingBehavior : MonoBehaviour
                 Debug.LogWarning($"{prey.name} has no assigned carcass prefab!");
             }
 
-            Destroy(prey.gameObject);
+            Object.Destroy(prey.gameObject);
         }
         else
         {
             Debug.Log($"{predator.name} failed to kill {prey.name}!");
+            prey.UnfreezeMovement();
             predator.ApplyFailedHuntPenalty();
         }
+
+        predator.UnfreezeMovement();
     }
+
+
 }
