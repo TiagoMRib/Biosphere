@@ -1,0 +1,81 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class FoodSearchBehavior : MonoBehaviour
+{
+    private Animal animal;
+
+    public void Initialize(Animal animalRef)
+    {
+        animal = animalRef;
+    }
+    
+    public FoodSource FindFood()
+    {
+        Collider[] hits = Physics.OverlapSphere(transform.position, animal.GetSearchRadius());
+
+        foreach (var hit in hits)
+        {
+            FoodSource food = hit.GetComponent<FoodSource>();
+            if (food != null && animal.GetDiet().Contains(food.GetTag()))
+                return food;
+        }
+
+        return null;
+    }
+
+    public Animal FindPrey()
+    {
+        if (animal.GetDiet().Contains("Meat") == false)
+        {
+            Debug.LogWarning($"{animal.name} is not a carnivore and cannot hunt prey.");
+            return null;
+        }
+        
+        Collider[] hits = Physics.OverlapSphere(transform.position, animal.GetSearchRadius());
+
+        Animal bestCandidate = null;
+        float bestScore = float.MinValue;
+
+        foreach (var hit in hits)
+        {
+            Animal other = hit.GetComponent<Animal>();
+
+            if (other != null && other != animal)
+            {
+
+                // Don't hunt other predators or equals
+                float preyStrength = other.traits.strength;
+                float myStrength = animal.traits.strength;
+
+                // Desperation based on hunger (0 if full, 1 if starving)
+                float hungerFactor = 1f - (animal.currentHealth / animal.traits.maxHealth);
+
+                // Boldness is how risky this animal behaves (0 = coward, 1 = reckless)
+                float boldness = animal.traits.boldness;
+
+                // Dynamic risk tolerance (higher if bold or desperate)
+                float maxAcceptableStrength = myStrength * (1f - 0.3f + boldness * 0.6f + hungerFactor * 0.4f);
+
+                if (preyStrength <= maxAcceptableStrength)
+                {
+                    // Prefer weaker prey that are easier to kill
+                    float desirability = myStrength - preyStrength;
+
+                    if (desirability > bestScore)
+                    {
+                        bestScore = desirability;
+                        bestCandidate = other;
+                    }
+                }
+            }
+        }
+
+        Debug.Log($"Found prey: {bestCandidate?.name ?? "None"} with score {bestScore}");
+        return bestCandidate;
+    }
+
+
+
+}
