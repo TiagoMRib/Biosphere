@@ -15,6 +15,7 @@ public class Animal : MonoBehaviour
     private EatBehavior eatBehavior;
     private RoamBehavior roamBehavior;
     private RestBehavior restBehavior;
+    public MatingBehavior matingBehavior;
 
 
     // Visual representation
@@ -31,6 +32,7 @@ public class Animal : MonoBehaviour
         eatBehavior = GetComponent<EatBehavior>();
         roamBehavior = GetComponent<RoamBehavior>();
         restBehavior = GetComponent<RestBehavior>();
+        matingBehavior = GetComponent<MatingBehavior>();
 
 
         foodSearch.Initialize(this);
@@ -38,6 +40,7 @@ public class Animal : MonoBehaviour
         eatBehavior.Initialize(this);
         roamBehavior.Initialize(this);
         restBehavior.Initialize(this);
+        matingBehavior.Initialize(this);
 
         SpawnVisual();
     }
@@ -108,6 +111,9 @@ public class Animal : MonoBehaviour
             
         }
 
+        // 3. If not hungry, check for mates
+        matingBehavior.UpdateReproduction();
+
         // 4. Roam if not hungry or no food/prey found
         if (!roamBehavior.IsRoaming() && !IsFrozen())
         {
@@ -116,7 +122,10 @@ public class Animal : MonoBehaviour
     }
 
 
-
+    public string GetSpeciesTag()
+    {
+        return traits.speciesTag;
+    }
 
     private void HandleHunger()
     {

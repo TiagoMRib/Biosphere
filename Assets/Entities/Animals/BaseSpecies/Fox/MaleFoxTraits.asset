@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66b2c37dfd26eb5489c0de90a277a8b8, type: 3}
+  m_Name: MaleFoxTraits
+  m_EditorClassIdentifier: 
+  speciesTag: Fox
+  visualPrefab: {fileID: 2515840324337541350, guid: d0af44f276691544fb30e2185b28e811, type: 3}
+  carcassPrefab: {fileID: 2325207751246442975, guid: e189db6156078b748b3b9eb87cc8544c, type: 3}
+  maxHealth: 180
+  baseHungerRate: 1
+  hungerRate: 1
+  eatRate: 3
+  dietTags:
+  - Berries
+  - Meat
+  baseStrength: 4
+  baseSpeed: 3
+  speed: 3
+  strength: 4
+  searchRadius: 16
+  comfortableHealthThreshold: 0.4
+  boldness: 0.5
+  sex: 0
+  fertilityCooldown: 50
+  fertileDuration: 10
+  gestationDuration: 20
+  gestationStrengthPenalty: 0.3
+  gestationSpeedPenalty: 0.3
+  gestationHungerMultiplier: 1.5
