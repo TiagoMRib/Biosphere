@@ -32,7 +32,7 @@ MonoBehaviour:
   sex: 0
   fertilityCooldown: 50
   fertileDuration: 10
-  gestationDuration: 20
+  gestationDuration: 30
   gestationStrengthPenalty: 0.3
   gestationSpeedPenalty: 0.3
   gestationHungerMultiplier: 1.5

@@ -40,7 +40,7 @@ public static class AnimalGeneticConstants
     {
         public const float StatMutation = 0.1f;      // 10% for strength, speed
         public const float HungerBoost = 0.02f;      // Added if faster/stronger
-        public const float DietMutation = 0.3f;      // 30% chance of new food type
+        public const float DietMutation = 0.15f;      // 30% chance of new food type
         public const float CombineDietsChance = 0.6f;
     }
 }

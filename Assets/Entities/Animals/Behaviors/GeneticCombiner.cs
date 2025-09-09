@@ -106,6 +106,15 @@ public static class GeneticCombiner
                 string candidate = family[Random.Range(0, family.Length)];
                 combined.Add(candidate);
             }
+
+            // Rare mutation: add a random tag from all possible diet tags (outside family)
+            float rareMutationChance = 0.01f; // 1%
+            if (Random.value < rareMutationChance)
+            {
+                var allTags = AnimalGeneticConstants.AllDietTags;
+                string randomTag = allTags[Random.Range(0, allTags.Count)];
+                combined.Add(randomTag);
+            }
         }
 
         return combined.ToList();

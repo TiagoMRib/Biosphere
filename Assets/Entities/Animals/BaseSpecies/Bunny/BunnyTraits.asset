@@ -16,18 +16,18 @@ MonoBehaviour:
   visualPrefab: {fileID: 1659515973933516273, guid: dc02bc7f236497e4d97a97dd77075ee5, type: 3}
   carcassPrefab: {fileID: 2325207751246442975, guid: e189db6156078b748b3b9eb87cc8544c, type: 3}
   maxHealth: 100
-  baseHungerRate: 0
-  hungerRate: 0
-  eatRate: 5
+  baseHungerRate: 5
+  hungerRate: 5
+  eatRate: 15
   dietTags:
   - Grass
   baseStrength: 1
-  baseSpeed: 4
-  speed: 4
+  baseSpeed: 6
+  speed: 6
   strength: 1
   searchRadius: 8
   comfortableHealthThreshold: 0.8
-  boldness: 0.5
+  boldness: 0.3
   sex: 1
   fertilityCooldown: 50
   fertileDuration: 10

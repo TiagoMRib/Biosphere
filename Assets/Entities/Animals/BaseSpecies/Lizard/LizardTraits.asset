@@ -16,22 +16,22 @@ MonoBehaviour:
   visualPrefab: {fileID: 7719104305862423793, guid: fdb5ffc8a02b8f94ebccae866007198f, type: 3}
   carcassPrefab: {fileID: 2325207751246442975, guid: e189db6156078b748b3b9eb87cc8544c, type: 3}
   maxHealth: 30
-  baseHungerRate: 0
-  hungerRate: 0
+  baseHungerRate: 2
+  hungerRate: 2
   eatRate: 10
   dietTags:
   - Insects
-  baseStrength: 0
-  baseSpeed: 3
-  speed: 3
-  strength: 0
+  baseStrength: 1
+  baseSpeed: 8
+  speed: 8
+  strength: 1
   searchRadius: 8
   comfortableHealthThreshold: 0.4
   boldness: 0.9
   sex: 1
   fertilityCooldown: 50
   fertileDuration: 10
-  gestationDuration: 20
-  gestationStrengthPenalty: 0.3
-  gestationSpeedPenalty: 0.3
+  gestationDuration: 7
+  gestationStrengthPenalty: 0.2
+  gestationSpeedPenalty: 0.4
   gestationHungerMultiplier: 1.5
