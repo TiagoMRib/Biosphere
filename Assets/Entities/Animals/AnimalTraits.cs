@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using static AnimalGeneticConstants;
 
 [CreateAssetMenu(fileName = "NewAnimalTraits", menuName = "Animal/Traits")]
 
@@ -52,4 +53,3 @@ public class AnimalTraits : ScriptableObject
     }
 }
 
-public enum Sex { Male, Female, Assexual }

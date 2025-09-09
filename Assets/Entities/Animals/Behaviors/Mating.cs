@@ -4,10 +4,21 @@ using UnityEngine;
 public class MatingBehavior : MonoBehaviour
 {
     private Animal animal;
+
+    private float matingRange = 1.5f;
+    private bool isMating = false;
+
+    // Male only
+    private Animal targetMate;
+
+    // Female only
     private float fertilityTimer = 0f;
     private float fertileTimeRemaining = 0f;
     private bool isGestating = false;
     private float gestationTimer = 0f;
+
+    // Store child's traits during gestation
+    private AnimalTraits pendingChildTraits;
 
     public void Initialize(Animal animalRef)
     {
@@ -40,6 +51,12 @@ public class MatingBehavior : MonoBehaviour
                 isGestating = false;
                 ResetGestationPenalties();
                 Debug.Log($"{animal.name} gave birth!");
+                // Instantiate offspring using stored traits
+                if (pendingChildTraits != null)
+                {
+                    AnimalFactory.CreateAnimal(pendingChildTraits, animal.transform.position, Quaternion.identity, animal.transform.parent);
+                    pendingChildTraits = null;
+                }
                 fertilityTimer = animal.traits.fertilityCooldown;
             }
         }
@@ -60,21 +77,37 @@ public class MatingBehavior : MonoBehaviour
 
     private void SearchForMate()
     {
-        // Males look for fertile females
-        Collider[] hits = Physics.OverlapSphere(transform.position, animal.GetSearchRadius());
+        if (isMating) return;
 
+        // If already pursuing a mate
+        if (targetMate != null)
+        {
+            if (targetMate == null || targetMate.gameObject == null)
+            {
+                targetMate = null;
+                return;
+            }
+            animal.MoveTowards(targetMate.transform.position);
+
+            if (Vector3.Distance(animal.transform.position, targetMate.transform.position) <= matingRange)
+            {
+                StartCoroutine(MatingRoutine(targetMate));
+            }
+            return;
+        }
+
+        // Search for a fertile female of same species
+        Collider[] hits = Physics.OverlapSphere(animal.transform.position, animal.GetSearchRadius());
         foreach (var hit in hits)
         {
             Animal other = hit.GetComponent<Animal>();
-            if (other == null || other == animal) continue;
+            if (other == null || other == animal || other.gameObject == null) continue;
 
             if (animal.GetSpeciesTag() == other.GetSpeciesTag() &&
                 other.traits.sex == Sex.Female &&
-                other.matingBehavior.IsFertile() &&
-                Vector3.Distance(transform.position, other.transform.position) < 1.5f)
+                other.matingBehavior.IsFertile())
             {
-                other.matingBehavior.BeginGestation();
-                Debug.Log($"{animal.name} mated with {other.name}");
+                targetMate = other;
                 break;
             }
         }
@@ -87,7 +120,7 @@ public class MatingBehavior : MonoBehaviour
         {
             fertilityTimer = animal.traits.fertilityCooldown;
             Debug.Log($"{animal.name} cloned itself (assexual reproduction)");
-            // Clone instantiation later
+            AnimalFactory.CreateClone(animal.traits, animal.transform.position, Quaternion.identity, animal.transform.parent);
         }
     }
 
@@ -111,4 +144,29 @@ public class MatingBehavior : MonoBehaviour
     }
 
     public bool IsFertile() => fertileTimeRemaining > 0f && !isGestating;
+
+    private IEnumerator MatingRoutine(Animal female)
+    {
+        isMating = true;
+        animal.FreezeMovement();
+        female.FreezeMovement();
+
+        Debug.Log($"{animal.name} is mating with {female.name}...");
+        yield return new WaitForSeconds(2f); // simulate time spent mating
+
+    // Generate child traits at conception
+    AnimalTraits childTraits = GeneticCombiner.CombineTraits(animal.traits, female.traits);
+    female.matingBehavior.pendingChildTraits = childTraits;
+    female.matingBehavior.BeginGestation();
+    Debug.Log($"{female.name} is now pregnant!");
+
+        // Unfreeze both
+        animal.UnfreezeMovement();
+        female.UnfreezeMovement();
+
+        // Reset state
+        targetMate = null;
+        isMating = false;
+    }
+
 }

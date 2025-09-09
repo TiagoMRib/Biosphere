@@ -15,6 +15,11 @@ public class HuntingBehavior : MonoBehaviour
 
     public void Hunt(Animal prey)
     {
+        if (prey == null || prey.gameObject == null)
+        {
+            targetPrey = null;
+            return;
+        }
         targetPrey = prey;
         Debug.Log($"{animal.name} is now hunting {prey.name}.");
     }
@@ -31,7 +36,7 @@ public class HuntingBehavior : MonoBehaviour
 
     public void UpdateHunt()
     {
-        if (targetPrey == null) return;
+        if (targetPrey == null || targetPrey.gameObject == null) return;
 
         animal.MoveTowards(targetPrey.transform.position);
 
@@ -44,6 +49,9 @@ public class HuntingBehavior : MonoBehaviour
 
     private IEnumerator FightRoutine(Animal predator, Animal prey)
     {
+        if (predator == null || predator.gameObject == null || prey == null || prey.gameObject == null)
+            yield break;
+
         Debug.Log($"{predator.name} is fighting {prey.name}...");
 
         predator.FreezeMovement();
@@ -61,6 +69,10 @@ public class HuntingBehavior : MonoBehaviour
 
         Debug.Log($"Fight duration: {fightDuration:F2}s");
         yield return new WaitForSeconds(fightDuration);
+
+        // Check again after wait
+        if (predator == null || predator.gameObject == null || prey == null || prey.gameObject == null)
+            yield break;
 
         float predatorRoll = predatorStrength + Random.Range(0f, 2f);
         float preyRoll = preyStrength + Random.Range(0f, 2f);
@@ -91,11 +103,13 @@ public class HuntingBehavior : MonoBehaviour
         else
         {
             Debug.Log($"{predator.name} failed to kill {prey.name}!");
-            prey.UnfreezeMovement();
+            if (prey != null && prey.gameObject != null)
+                prey.UnfreezeMovement();
             predator.ApplyFailedHuntPenalty();
         }
 
-        predator.UnfreezeMovement();
+        if (predator != null && predator.gameObject != null)
+            predator.UnfreezeMovement();
     }
 
 

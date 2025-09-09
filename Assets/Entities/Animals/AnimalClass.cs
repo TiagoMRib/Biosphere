@@ -24,16 +24,18 @@ public class Animal : MonoBehaviour
 
     private void Awake()
     {
-        currentHealth = traits.maxHealth;
-
-
         foodSearch = GetComponent<FoodSearchBehavior>();
         huntingBehavior = GetComponent<HuntingBehavior>();
         eatBehavior = GetComponent<EatBehavior>();
         roamBehavior = GetComponent<RoamBehavior>();
         restBehavior = GetComponent<RestBehavior>();
         matingBehavior = GetComponent<MatingBehavior>();
+    }
 
+    public void Initialize(AnimalTraits traits)
+    {
+        this.traits = traits;
+        currentHealth = traits.maxHealth;
 
         foodSearch.Initialize(this);
         huntingBehavior.Initialize(this);

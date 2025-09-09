@@ -43,9 +43,8 @@ public class FoodSearchBehavior : MonoBehaviour
         {
             Animal other = hit.GetComponent<Animal>();
 
-            if (other != null && other != animal)
+            if (other != null && other != animal && other.gameObject != null)
             {
-
                 // Don't hunt other predators or equals
                 float preyStrength = other.traits.strength;
                 float myStrength = animal.traits.strength;
