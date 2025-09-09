@@ -60,3 +60,30 @@ The goal is to create emergent behaviors such as **hunting, eating, roaming, mat
 The long-term vision is a **self-sustaining evolving ecosystem simulator** where animals adapt over time, forming unique populations through mutation and selection.
 
 ---
+
+## 🔮 Future Work Checklist
+
+- [ ] **Aging system**:  
+  - Animals are born as babies with penalties (speed, strength).  
+  - They mature into adults with peak traits.  
+  - Old age brings penalties.  
+
+- [ ] **Biome system**:  
+  - Biome regions with temperature, vegetation, and camouflage effects.  
+  - Animals adapt better/worse depending on their traits and colors.  
+  - Climate affects food growth and animal survival.  
+
+- [ ] **Seasonal cycles**:  
+  - Changing temperature, day length, and food availability over time.  
+  - Seasonal migrations as a possible emergent behavior.  
+
+- [ ] **Egg-laying animals**:  
+  - Alternative reproduction path where offspring hatch after incubation.
+  - Egg as a food source that, if not destroyed spawns animals  
+
+- [ ] **Camouflage & visibility**:  
+  - Animal colors compared to biome colors for predator/prey detection difficulty.  
+
+- [ ] **Child protection behavior**:  
+  - Parents may defend or guide offspring.  
+  - Herd/pack dynamics possible in social species.  

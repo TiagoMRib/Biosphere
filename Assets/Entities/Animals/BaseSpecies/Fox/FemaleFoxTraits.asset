@@ -16,8 +16,8 @@ MonoBehaviour:
   visualPrefab: {fileID: 2515840324337541350, guid: d0af44f276691544fb30e2185b28e811, type: 3}
   carcassPrefab: {fileID: 2325207751246442975, guid: e189db6156078b748b3b9eb87cc8544c, type: 3}
   maxHealth: 180
-  baseHungerRate: 1
-  hungerRate: 1
+  baseHungerRate: 2
+  hungerRate: 2
   eatRate: 3
   dietTags:
   - Berries
@@ -28,7 +28,7 @@ MonoBehaviour:
   strength: 3
   searchRadius: 16
   comfortableHealthThreshold: 0.4
-  boldness: 0.5
+  boldness: 0.6
   sex: 1
   fertilityCooldown: 50
   fertileDuration: 10
