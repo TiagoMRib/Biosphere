@@ -33,8 +33,32 @@ public static class GeneticCombiner
         child.gestationSpeedPenalty = AverageWithMutation(parentA.gestationSpeedPenalty, parentB.gestationSpeedPenalty, 0.05f);
         child.gestationHungerMultiplier = AverageWithMutation(parentA.gestationHungerMultiplier, parentB.gestationHungerMultiplier, 0.1f);
 
-        // Random Sex
-        child.sex = AnimalGeneticConstants.PossibleSexes[Random.Range(0, AnimalGeneticConstants.PossibleSexes.Count)];
+        // Sex inheritance with rare mutation
+        bool parentAIsSexual = parentA.sex == Sex.Male || parentA.sex == Sex.Female;
+        bool parentBIsSexual = parentB.sex == Sex.Male || parentB.sex == Sex.Female;
+        bool bothSexual = parentAIsSexual && parentBIsSexual;
+        bool bothAssexual = parentA.sex == Sex.Assexual && parentB.sex == Sex.Assexual;
+
+        float mutationChance = 0.01f; // 1% chance for rare mutation
+        if (bothSexual)
+        {
+            if (Random.value < mutationChance)
+                child.sex = Sex.Assexual;
+            else
+                child.sex = Random.value < 0.5f ? Sex.Male : Sex.Female;
+        }
+        else if (bothAssexual)
+        {
+            if (Random.value < mutationChance)
+                child.sex = Random.value < 0.5f ? Sex.Male : Sex.Female;
+            else
+                child.sex = Sex.Assexual;
+        }
+        else
+        {
+            // Mixed parents: random, but favor sexual
+            child.sex = Random.value < 0.8f ? (Random.value < 0.5f ? Sex.Male : Sex.Female) : Sex.Assexual;
+        }
 
         // Diet Tags
         child.dietTags = CombineDiets(parentA.dietTags, parentB.dietTags);

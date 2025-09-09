@@ -10,24 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 66b2c37dfd26eb5489c0de90a277a8b8, type: 3}
-  m_Name: BunnyTraits
+  m_Name: LizardTraits
   m_EditorClassIdentifier: 
-  speciesTag: Bunny
-  visualPrefab: {fileID: 1659515973933516273, guid: dc02bc7f236497e4d97a97dd77075ee5, type: 3}
+  speciesTag: Lizard
+  visualPrefab: {fileID: 7719104305862423793, guid: fdb5ffc8a02b8f94ebccae866007198f, type: 3}
   carcassPrefab: {fileID: 2325207751246442975, guid: e189db6156078b748b3b9eb87cc8544c, type: 3}
-  maxHealth: 100
+  maxHealth: 30
   baseHungerRate: 0
   hungerRate: 0
-  eatRate: 5
+  eatRate: 10
   dietTags:
-  - Grass
-  baseStrength: 1
-  baseSpeed: 4
-  speed: 4
-  strength: 1
+  - Insects
+  baseStrength: 0
+  baseSpeed: 3
+  speed: 3
+  strength: 0
   searchRadius: 8
-  comfortableHealthThreshold: 0.8
-  boldness: 0.5
+  comfortableHealthThreshold: 0.4
+  boldness: 0.9
   sex: 1
   fertilityCooldown: 50
   fertileDuration: 10

@@ -33,7 +33,11 @@ public class AnimalSpawner : MonoBehaviour
                     Random.Range(-info.spawnAreaSize.z/2, info.spawnAreaSize.z/2)
                 );
 
-                AnimalFactory.CreateAnimal(childTraits, randomPos, Quaternion.identity, this.transform);
+                Animal animal = AnimalFactory.CreateAnimal(childTraits, randomPos, Quaternion.identity, this.transform);
+                if (animal != null && animal.traits != null)
+                {
+                    animal.gameObject.name = animal.traits.speciesTag;
+                }
             }
         }
     }

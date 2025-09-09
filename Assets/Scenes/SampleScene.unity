@@ -467,68 +467,95 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7133208466579469035, guid: 84d983757e1ba164ab10242b465696fb, type: 3}
+      propertyPath: foodSourcesToSpawn.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7133208466579469035, guid: 84d983757e1ba164ab10242b465696fb, type: 3}
+      propertyPath: foodSourcesToSpawn.Array.data[0].count
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7133208466579469035, guid: 84d983757e1ba164ab10242b465696fb, type: 3}
+      propertyPath: foodSourcesToSpawn.Array.data[1].count
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7133208466579469035, guid: 84d983757e1ba164ab10242b465696fb, type: 3}
+      propertyPath: foodSourcesToSpawn.Array.data[0].foodPrefab
+      value: 
+      objectReference: {fileID: 5508978568079887686, guid: eb09c782754ffb941bb76ab076a409ee, type: 3}
+    - target: {fileID: 7133208466579469035, guid: 84d983757e1ba164ab10242b465696fb, type: 3}
+      propertyPath: foodSourcesToSpawn.Array.data[1].foodPrefab
+      value: 
+      objectReference: {fileID: 7783854210427000874, guid: 871e2235c60ed0e45879814e71c22648, type: 3}
+    - target: {fileID: 7133208466579469035, guid: 84d983757e1ba164ab10242b465696fb, type: 3}
+      propertyPath: foodSourcesToSpawn.Array.data[0].spawnAreaSize.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7133208466579469035, guid: 84d983757e1ba164ab10242b465696fb, type: 3}
+      propertyPath: foodSourcesToSpawn.Array.data[0].spawnAreaSize.z
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 7133208466579469035, guid: 84d983757e1ba164ab10242b465696fb, type: 3}
+      propertyPath: foodSourcesToSpawn.Array.data[1].spawnAreaSize.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7133208466579469035, guid: 84d983757e1ba164ab10242b465696fb, type: 3}
+      propertyPath: foodSourcesToSpawn.Array.data[1].spawnAreaSize.z
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 7638520566757861493, guid: 84d983757e1ba164ab10242b465696fb, type: 3}
+      propertyPath: speciesToSpawn.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7638520566757861493, guid: 84d983757e1ba164ab10242b465696fb, type: 3}
+      propertyPath: speciesToSpawn.Array.data[0].count
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7638520566757861493, guid: 84d983757e1ba164ab10242b465696fb, type: 3}
+      propertyPath: speciesToSpawn.Array.data[1].count
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7638520566757861493, guid: 84d983757e1ba164ab10242b465696fb, type: 3}
+      propertyPath: speciesToSpawn.Array.data[2].count
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7638520566757861493, guid: 84d983757e1ba164ab10242b465696fb, type: 3}
+      propertyPath: speciesToSpawn.Array.data[1].baseMaleTraits
+      value: 
+      objectReference: {fileID: 11400000, guid: aec0608e99e8a994ca7341632b70cfaa, type: 2}
+    - target: {fileID: 7638520566757861493, guid: 84d983757e1ba164ab10242b465696fb, type: 3}
+      propertyPath: speciesToSpawn.Array.data[2].baseMaleTraits
+      value: 
+      objectReference: {fileID: 11400000, guid: 5084d3dae399f2a4cbaa962fc82c8cbc, type: 2}
+    - target: {fileID: 7638520566757861493, guid: 84d983757e1ba164ab10242b465696fb, type: 3}
+      propertyPath: speciesToSpawn.Array.data[1].spawnAreaSize.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7638520566757861493, guid: 84d983757e1ba164ab10242b465696fb, type: 3}
+      propertyPath: speciesToSpawn.Array.data[1].spawnAreaSize.z
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7638520566757861493, guid: 84d983757e1ba164ab10242b465696fb, type: 3}
+      propertyPath: speciesToSpawn.Array.data[2].spawnAreaSize.x
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 7638520566757861493, guid: 84d983757e1ba164ab10242b465696fb, type: 3}
+      propertyPath: speciesToSpawn.Array.data[2].spawnAreaSize.z
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 7638520566757861493, guid: 84d983757e1ba164ab10242b465696fb, type: 3}
+      propertyPath: speciesToSpawn.Array.data[1].baseFemaleTraits
+      value: 
+      objectReference: {fileID: 11400000, guid: aec0608e99e8a994ca7341632b70cfaa, type: 2}
+    - target: {fileID: 7638520566757861493, guid: 84d983757e1ba164ab10242b465696fb, type: 3}
+      propertyPath: speciesToSpawn.Array.data[2].baseFemaleTraits
+      value: 
+      objectReference: {fileID: 11400000, guid: 5084d3dae399f2a4cbaa962fc82c8cbc, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84d983757e1ba164ab10242b465696fb, type: 3}
---- !u!1001 &8396839637007249755
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4219105038436850060, guid: eb09c782754ffb941bb76ab076a409ee, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 14.49
-      objectReference: {fileID: 0}
-    - target: {fileID: 4219105038436850060, guid: eb09c782754ffb941bb76ab076a409ee, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4219105038436850060, guid: eb09c782754ffb941bb76ab076a409ee, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4219105038436850060, guid: eb09c782754ffb941bb76ab076a409ee, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4219105038436850060, guid: eb09c782754ffb941bb76ab076a409ee, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4219105038436850060, guid: eb09c782754ffb941bb76ab076a409ee, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4219105038436850060, guid: eb09c782754ffb941bb76ab076a409ee, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4219105038436850060, guid: eb09c782754ffb941bb76ab076a409ee, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4219105038436850060, guid: eb09c782754ffb941bb76ab076a409ee, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4219105038436850060, guid: eb09c782754ffb941bb76ab076a409ee, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5508978568079887686, guid: eb09c782754ffb941bb76ab076a409ee, type: 3}
-      propertyPath: m_Name
-      value: GrassPatch
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: eb09c782754ffb941bb76ab076a409ee, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -537,4 +564,3 @@ SceneRoots:
   - {fileID: 963194228}
   - {fileID: 705507995}
   - {fileID: 1183969827}
-  - {fileID: 8396839637007249755}

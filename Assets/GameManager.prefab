@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1599293801654509167}
   - component: {fileID: 5728489487097516732}
   - component: {fileID: 7638520566757861493}
+  - component: {fileID: 7133208466579469035}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -64,3 +65,16 @@ MonoBehaviour:
     count: 3
     spawnAreaCenter: {x: 0, y: 0, z: 0}
     spawnAreaSize: {x: 10, y: 0, z: 10}
+--- !u!114 &7133208466579469035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 648410317314240179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b387d2252c306048baa0d6ec2cb5705, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foodSourcesToSpawn: []
